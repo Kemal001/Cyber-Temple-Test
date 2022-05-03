@@ -4,12 +4,10 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
-public class MainMenu : MonoBehaviour
+public class MainMenuView : MonoBehaviour
 {
     public Button playButton;
     public Button exitButton;
-
-    public string sceneName;
 
     private void Awake()
     {
@@ -19,11 +17,12 @@ public class MainMenu : MonoBehaviour
 
     private void PlayGame()
     {
-        SceneManager.LoadScene(sceneName);
+        SceneController.Instance.LoadGameScene();
     }
 
     private void ExitGame()
     {
+        print("Quitting game...");
         Application.Quit();
     }
 }
